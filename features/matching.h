@@ -161,9 +161,9 @@ Matching::oneway_match (Options const& options,
 //        float square_dist_2st_best = static_cast<float>(nn_result.dist_2nd_best);
 //        float const square_lowe_thres = MATH_POW2(options.lowe_ratio_threshold);
 
-               /*                  */
-               /*    此处添加代码    */
-               /*                  */
+        float ratio = static_cast<float>(nn_result.dist_1st_best) / static_cast<float>(nn_result.dist_2nd_best);
+        if (ratio > options.lowe_ratio_threshold) continue;
+
         /*******************************10696_10015b911522757f6?bizid=10696&txSecret=63384d4bd569e29729b6995dd8a9eefb&txTime=5B93EFB6**********************************/
 
         if (static_cast<float>(nn_result.dist_1st_best)
