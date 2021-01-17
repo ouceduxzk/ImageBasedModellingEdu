@@ -40,7 +40,9 @@ int  calc_ransac_iterations (double p,
 
     /** TODO HERE
      * Coding here**/
-    return 0;
+
+    const int iterations = static_cast<int>(log(1-z) / log(1 - std::pow(p, K)));
+    return iterations;
 
 
     /** Reference
@@ -174,6 +176,13 @@ std::vector<int> find_inliers(sfm::Correspondences2D2D const & matches
      * TODO HERE
      *
      * Coding here **/
+
+    for(int i = 0; i < matches.size();i++){
+        const double dis = calc_sampson_distance(F, matches[i]);
+        if(dis < squared_thresh){
+            inliers.emplace_back(i);
+        }
+    }
 
     /** Reference
     for(int i=0; i< matches.size(); i++){
