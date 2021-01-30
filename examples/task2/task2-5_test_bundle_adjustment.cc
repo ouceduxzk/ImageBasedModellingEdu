@@ -5,6 +5,7 @@
 #include "math/matrix.h"
 #include "math/vector.h"
 
+#include "assert.h"
 #include "core/image_io.h"
 #include "core/image.h"
 #include "core/image_tools.h"
