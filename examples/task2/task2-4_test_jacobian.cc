@@ -100,13 +100,12 @@ void jacobian(sfm::ba::Camera const& cam,
     cam_y_ptr[8] = cam_y_ptr[3] * (-r1x) + cam_y_ptr[4] * r0x;
 
     // 三维点的偏导数
-    point_x_ptr[0] = 0.0;
-    point_x_ptr[1] = 0.0;
-    point_x_ptr[2] = 0.0;
-    point_y_ptr[0] = 0.0;
-    point_y_ptr[1] = 0.0;
-    point_y_ptr[2] = 0.0;
-
+    point_x_ptr[0] = cam_x_ptr[3] * R[0] + cam_x_ptr[4] * R[3] + cam_x_ptr[5] * R[6];
+    point_x_ptr[1] = cam_x_ptr[3] * R[1] + cam_x_ptr[4] * R[4] + cam_x_ptr[5] * R[7];
+    point_x_ptr[2] = cam_x_ptr[3] * R[2] + cam_x_ptr[4] * R[5] + cam_x_ptr[5] * R[8];
+    point_y_ptr[0] = cam_y_ptr[3] * R[0] + cam_y_ptr[4] * R[3] + cam_y_ptr[5] * R[6];;
+    point_y_ptr[1] = cam_y_ptr[3] * R[1] + cam_y_ptr[4] * R[4] + cam_y_ptr[5] * R[7];;
+    point_y_ptr[2] = cam_y_ptr[3] * R[2] + cam_y_ptr[4] * R[5] + cam_y_ptr[5] * R[8];;
 }
 int main(int argc, char*argv[])
 {
